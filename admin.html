@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>良家导航 - 数据管理</title>
+    <link rel="icon" href="ico.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="ico.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+    <div class="admin-container">
+        <aside class="admin-sidebar">
+            <div class="admin-header">
+                <h2>数据管理</h2>
+                <a href="index.html" class="back-btn">返回首页</a>
+            </div>
+            <nav class="admin-nav">
+                <a href="#" class="admin-nav-item active" data-panel="basic">网站基础</a>
+                <a href="#" class="admin-nav-item" data-panel="seo">SEO配置</a>
+                <a href="#" class="admin-nav-item" data-panel="sidebar">侧边栏导航</a>
+                <a href="#" class="admin-nav-item" data-panel="categories">分类区域</a>
+                <a href="#" class="admin-nav-item" data-panel="friendlinks">友情链接</a>
+                <a href="#" class="admin-nav-item" data-panel="banners">公告管理</a>
+                <a href="#" class="admin-nav-item" data-panel="footer">页脚配置</a>
+                <a href="#" class="admin-nav-item" data-panel="contact">联系页面</a>
+                <a href="#" class="admin-nav-item" data-panel="about">关于页面</a>
+                <a href="#" class="admin-nav-item" data-panel="other">其他配置</a>
+            </nav>
+        </aside>
+
+        <main class="admin-main">
+            <!-- 网站基础信息 -->
+            <div id="basic-panel" class="admin-panel active">
+                <h3>网站基础信息</h3>
+                <div class="config-form">
+                    <div class="form-group">
+                        <label>网站名称：</label>
+                        <input type="text" id="site-name" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label>网站标题：</label>
+                        <input type="text" id="site-title" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label>网站副标题：</label>
+                        <input type="text" id="site-subtitle" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label>网站简介：</label>
+                        <textarea id="site-description" class="form-input" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>网站关键词：</label>
+                        <input type="text" id="site-keywords" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label>联系邮箱：</label>
+                        <input type="text" id="site-email" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label>网站标语：</label>
+                        <input type="text" id="site-slogan" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label>ICP备案号：</label>
+                        <input type="text" id="site-icp" class="form-input">
+                    </div>
+                    <button class="btn-primary" onclick="updateSiteInfo()">保存网站基础信息</button>
+                </div>
+            </div>
+
+            <!-- SEO配置 -->
+            <div id="seo-panel" class="admin-panel">
+                <h3>SEO配置</h3>
+                <div class="config-form">
+                    <div class="form-group">
+                        <label>Meta标题：</label>
+                        <input type="text" id="seo-title" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label>Meta描述：</label>
+                        <textarea id="seo-description" class="form-input" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Meta关键词：</label>
+                        <input type="text" id="seo-keywords" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label>Meta作者：</label>
+                        <input type="text" id="seo-author" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label>Meta Robots：</label>
+                        <input type="text" id="seo-robots" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label>Canonical：</label>
+                        <input type="text" id="seo-canonical" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label>OG标题：</label>
+                        <input type="text" id="seo-og-title" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label>OG描述：</label>
+                        <input type="text" id="seo-og-description" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label>OG类型：</label>
+                        <input type="text" id="seo-og-type" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label>OG网址：</label>
+                        <input type="text" id="seo-og-url" class="form-input">
+                    </div>
+                    <button class="btn-primary" onclick="updateSEO()">保存SEO配置</button>
+                </div>
+            </div>
+
+            <!-- 联系页面配置 -->
+            <div id="contact-panel" class="admin-panel">
+                <h3>联系页面配置</h3>
+                <div class="config-form">
+                    <div class="form-group">
+                        <label>页面标题：</label>
+                        <input type="text" id="contact-title" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label>页面副标题：</label>
+                        <input type="text" id="contact-subtitle" class="form-input">
+                    </div>
+                </div>
+                <div class="panel-actions">
+                    <button class="btn-primary" onclick="addContactSection()">添加内容区块</button>
+                </div>
+                <div class="sections-list" id="contact-sections"></div>
+                <button class="btn-primary" onclick="updateContactPage()">保存联系页面</button>
+            </div>
+
+            <!-- 关于页面配置 -->
+            <div id="about-panel" class="admin-panel">
+                <h3>关于页面配置</h3>
+                <div class="config-form">
+                    <div class="form-group">
+                        <label>页面标题：</label>
+                        <input type="text" id="about-title" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label>页面副标题：</label>
+                        <input type="text" id="about-subtitle" class="form-input">
+                    </div>
+                </div>
+                <div class="panel-actions">
+                    <button class="btn-primary" onclick="addAboutSection()">添加内容区块</button>
+                </div>
+                <div class="sections-list" id="about-sections"></div>
+                <button class="btn-primary" onclick="updateAboutPage()">保存关于页面</button>
+            </div>
+
+            <!-- 侧边栏导航管理 -->
+            <div id="sidebar-panel" class="admin-panel">
+                <h3>侧边栏导航管理</h3>
+                <div class="panel-actions">
+                    <button class="btn-primary" onclick="addSidebarItem()">添加导航项</button>
+                </div>
+                <div class="items-list" id="sidebar-list"></div>
+            </div>
+
+            <!-- 友情链接管理 -->
+            <div id="friendlinks-panel" class="admin-panel">
+                <h3>友情链接管理</h3>
+                <div class="panel-actions">
+                    <button class="btn-primary" onclick="addFriendLinkItem()">添加友情链接</button>
+                </div>
+                <div class="items-list" id="friendlinks-list"></div>
+            </div>
+
+            <!-- 公告管理 -->
+            <div id="banners-panel" class="admin-panel">
+                <h3>公告管理</h3>
+                <div class="panel-actions">
+                    <button class="btn-primary" onclick="addBanner()">添加公告</button>
+                </div>
+                <div class="items-list" id="banners-list"></div>
+            </div>
+
+            <!-- 分类区域管理 -->
+            <div id="categories-panel" class="admin-panel">
+                <h3>分类区域管理</h3>
+                <div class="panel-actions">
+                    <button class="btn-primary" onclick="addCategory()">添加分类</button>
+                </div>
+                <div class="categories-tree" id="categories-tree"></div>
+            </div>
+
+            <!-- 页脚配置 -->
+            <div id="footer-panel" class="admin-panel">
+                <h3>页脚配置</h3>
+                <div class="config-form">
+                    <div class="form-group">
+                        <label>页脚名称：</label>
+                        <input type="text" id="footer-name" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label>联系邮箱：</label>
+                        <input type="text" id="footer-email" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label>标语：</label>
+                        <textarea id="footer-slogan" class="form-input" rows="2" placeholder="可使用 HTML 链接格式：&lt;a href=&quot;https://example.com&quot;&gt;链接文字&lt;/a&gt;"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>版权信息：</label>
+                        <textarea id="footer-copyright" class="form-input" rows="2" placeholder="可使用 HTML 链接格式：&lt;a href=&quot;https://example.com&quot;&gt;链接文字&lt;/a&gt;"></textarea>
+                    </div>
+                    <button class="btn-primary" onclick="updateFooter()">保存页脚配置</button>
+                </div>
+            </div>
+
+            <!-- 其他配置 -->
+            <div id="other-panel" class="admin-panel">
+                <h3>快捷入口管理</h3>
+                <div class="config-section">
+                    <h4>快捷标签（显示5个）</h4>
+                    <div class="panel-actions">
+                        <button class="btn-primary" onclick="addQuickTab()">添加标签</button>
+                    </div>
+                    <div class="items-list" id="quickTabs-list"></div>
+                </div>
+                <div class="config-section">
+                    <h4>快捷链接</h4>
+                    <div class="panel-actions">
+                        <button class="btn-primary" onclick="addQuickLink()">添加链接</button>
+                    </div>
+                    <div class="items-list" id="quickLinks-list"></div>
+                </div>
+            </div>
+        </main>
+
+        <div class="admin-footer">
+            <button class="btn-success" onclick="saveAllData()">保存所有数据并下载</button>
+            <button class="btn-warning" onclick="previewChanges()">预览更改</button>
+        </div>
+    </div>
+
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">编辑</h3>
+                <button class="modal-close" onclick="closeModal()">✕</button>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+            <div class="modal-footer">
+                <button class="btn-primary" onclick="saveModalData()">保存</button>
+                <button class="btn-secondary" onclick="closeModal()">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="add-site-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>添加网站链接</h3>
+                <button class="modal-close" onclick="closeSiteModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>网站名称：</label>
+                    <input type="text" id="add-site-name" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label>网站地址：</label>
+                    <input type="text" id="add-site-url" class="form-input" placeholder="https://">
+                </div>
+                <div class="form-group">
+                    <label>网站简介：</label>
+                    <input type="text" id="add-site-desc" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label>图标域名：</label>
+                    <input type="text" id="add-site-icon" class="form-input" placeholder="例如：github.com">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary" onclick="saveNewSite()">保存</button>
+                <button class="btn-secondary" onclick="closeSiteModal()">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/fwsmdata.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

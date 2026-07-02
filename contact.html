@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 - 良家导航</title>
+    <link rel="icon" href="ico.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="ico.ico" type="image/x-icon">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei','Helvetica Neue',Helvetica,Arial,sans-serif;background:linear-gradient(180deg,#e8ecef 0%,#dde1e5 50%,#cfd3d7 100%);min-height:100vh;color:#2d3748}
+        .sidebar{position:fixed;left:0;top:0;width:60px;height:100vh;background:rgba(245,247,250,0.95);display:flex;flex-direction:column;align-items:center;padding-top:15px;z-index:1000;border-right:1px solid #c0c4c9}
+        .sidebar-logo{margin-bottom:20px}
+        .sidebar-logo img{width:48px;height:48px;border-radius:8px}
+        .sidebar-nav{display:flex;flex-direction:column;justify-content:space-between;flex:1;padding-bottom:15px}
+        .nav-top,.nav-bottom-wrapper{display:flex;flex-direction:column;gap:12px}
+        .nav-item{display:flex;flex-direction:column;align-items:center;color:#64748b;text-decoration:none;padding:8px 4px;border-radius:8px;transition:all .3s ease;width:44px}
+        .nav-item:hover{background:#e0f2fe;color:#3b82f6}
+        .nav-item.active{background:#dbeafe;color:#2563eb}
+        .nav-icon{font-size:20px;margin-bottom:2px}
+        .nav-text{font-size:10px}
+        .main-content{margin-left:60px}
+        .header{display:flex;align-items:center;justify-content:space-between;padding:15px 25px;background:transparent}
+        .header-left{display:flex;align-items:center;gap:15px}
+        .menu-btn{display:none;background:none;border:none;font-size:20px;cursor:pointer}
+        .logo-text{font-size:26px;font-weight:700;color:#3b82f6;text-decoration:none;line-height:48px}
+        .theme-toggle{background:none;border:none;font-size:24px;cursor:pointer;padding:5px;border-radius:6px;transition:all .3s ease}
+        .theme-toggle:hover{background:rgba(0,0,0,.05)}
+        .footer{background:transparent;padding:25px;text-align:center;border-top:none}
+        @media(max-width:768px){.sidebar{display:none}.main-content{margin-left:0}.menu-btn{display:block}}
+        body.dark-mode{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);color:#f0f0f0}
+        body.dark-mode .sidebar{background:rgba(35,35,60,.7)}
+        body.dark-mode .nav-item{color:rgba(255,255,255,.7)}
+        body.dark-mode .nav-item:hover{background:rgba(59,130,246,.2);color:#60a5fa}
+        body.dark-mode .nav-item.active{background:rgba(59,130,246,.3);color:#93c5fd}
+        body.dark-mode .logo-text{color:#60a5fa}
+        body.dark-mode .theme-toggle:hover{background:rgba(255,255,255,.1)}
+    </style>
+    <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/pages.css" media="print" onload="this.media='all'">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+        </div>
+        <nav class="sidebar-nav">
+        </nav>
+    </aside>
+
+    <div class="main-content">
+        <header class="header">
+            <div class="header-left">
+                <button class="menu-btn">☰</button>
+                <a href="index.html" class="logo-text">良家导航</a>
+            </div>
+            <nav class="header-nav">
+            </nav>
+            <button class="theme-toggle" onclick="toggleTheme()" title="切换主题">🌙</button>
+        </header>
+
+        <main class="page-content">
+            <div class="page-header">
+                <h1 class="page-title"></h1>
+                <p class="page-subtitle"></p>
+            </div>
+            <div class="page-sections">
+            </div>
+        </main>
+
+        <footer id="contact" class="footer">
+        </footer>
+    </div>
+
+    <script src="js/fwsmdata.js"></script>
+    <script src="js/pages.js"></script>
+</body>
+</html>
