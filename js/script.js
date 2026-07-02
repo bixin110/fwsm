@@ -13,10 +13,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function initTheme() {
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        document.body.classList.add('dark-mode');
-        updateThemeIcon(true);
+    const isDark = document.body.classList.contains('dark-mode');
+    
+    if (savedTheme) {
+        if (savedTheme === 'dark' && !isDark) {
+            document.body.classList.add('dark-mode');
+        } else if (savedTheme === 'light' && isDark) {
+            document.body.classList.remove('dark-mode');
+        }
+    } else {
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
     }
+    
+    updateThemeIcon(document.body.classList.contains('dark-mode'));
 }
 
 function toggleTheme() {
